@@ -1,9 +1,8 @@
-redis puppet module
+Redis puppet module
 ===================
 
-[![Build Status](https://secure.travis-ci.org/thomasvandoren/puppet-redis.png)](http://travis-ci.org/thomasvandoren/puppet-redis)
+A customised version of puppet module for redis, forked from Thomas Van Doren's version.
 
-Install and configure redis.
 
 Usage
 -----
@@ -13,22 +12,23 @@ Installs redis server and client with reasonable defaults (version 2.4.13 is inc
 include redis
 ```
 
-Installs redis server and client with version 2.6.5.
+Installs redis server and client with version 2.8.3.
 
 ```puppet
 class { 'redis':
-  version => '2.6.5',
+  version => '2.8.3',
 }
+redis::instance { 'redis-default' }
 ```
 
-Installs version 2.4.17, listens on default port 6379 with default settings.
-Sets up 2nd instance on port 6900, binds to address 10.1.2.3 (instead of all 
-available interfaces), sets max memory to 1 gigabyte, and sets a password from 
+Installs version 2.6.17, listens on default port 6379 with default settings.
+Sets up 2nd instance on port 6900, binds to address 10.1.2.3 (instead of all
+available interfaces), sets max memory to 1 gigabyte, and sets a password from
 hiera.
 
 ```puppet
 class { 'redis':
-  version            => '2.4.17',
+  version            => '2.6.17',
 }
 redis::instance { 'redis-6900':
   redis_port         => '6900',
@@ -41,6 +41,8 @@ redis::instance { 'redis-6900':
 Authors
 -------
 Thomas Van Doren
+Matt Ward
+Ronny Haryanto
 
 License
 -------
